@@ -34,13 +34,13 @@ if ( ! function_exists( 'materialized_s_setup' ) ) :
 		add_theme_support( 'title-tag' );
 
 		/*
-		 * Enable support for Post Thumbnails on posts and pages.
+		 * Enable support for Post Thumbnails on posts.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
 				'primary' => esc_html__( 'Primary', 'materialized_s' ),

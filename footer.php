@@ -10,7 +10,7 @@
  */
 
 ?>
-	<footer id="colophon" class="page-footer blue">
+	<footer id="colophon" class="page-footer">
 		<?php if ( has_nav_menu( 'footer' ) ) : ?>
 		<div class="container">
 			<div class="row">
@@ -40,6 +40,9 @@
 			</div>
 		</div>
     </footer><!-- #colophon -->
+	<script>
+		M.AutoInit();
+	</script>
 
 <?php wp_footer(); ?>
 

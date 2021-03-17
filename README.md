@@ -19,6 +19,8 @@ This theme aims to provide the starting point if you want to create a WP page wi
 The goal is to be able to reproduce something like the following example easily:
 https://materializecss.com/templates/parallax-template/preview.html
 
+Tip: You can get free images from pixabay.com to replicate it :)
+
 == Installation ==
 
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
@@ -29,7 +31,7 @@ https://materializecss.com/templates/parallax-template/preview.html
 
 = Does this theme support any plugins? =
 
-materialized_s includes support for WooCommerce and for Infinite Scroll in Jetpack.
+materialized_s includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
@@ -39,4 +41,3 @@ materialized_s includes support for WooCommerce and for Infinite Scroll in Jetpa
 == Credits ==
 
 * Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)

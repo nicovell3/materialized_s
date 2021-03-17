@@ -34,7 +34,7 @@ $header_class = $show_title && ! has_custom_logo() ? 'brand-logo' : 'screen-read
 	<header id="masthead" class="site-header">
 		<div class="navbar-fixed">
 			<nav>
-				<div class="nav-wrapper white">
+				<div class="nav-wrapper">
 				    <?php if ( has_custom_logo() ) : 
 						the_custom_logo();
 						elseif ( $show_title ) : ?>
@@ -42,15 +42,6 @@ $header_class = $show_title && ! has_custom_logo() ? 'brand-logo' : 'screen-read
 							<?php echo esc_html( $blog_info ); ?>
 					</a>
 					<?php endif; ?>
-
-					<!--<?php if ( true === get_theme_mod( 'display_title_and_tagline', true ) ) : ?>
-						<?php if ( $blog_info ) : ?>
-							<?php if ( is_front_page() && ! is_paged() ) : ?>
-								<a class="<?php echo esc_attr( $header_class ); ?>"><?php echo esc_html( $blog_info ); ?></a>
-
-							<?php endif; ?>
-						<?php endif; ?>
-					<?php endif; ?>-->
 
 					<?php if (has_nav_menu( 'primary' )) : ?>
 						<a href="#!" data-target="primary-menu" class="sidenav-trigger">
@@ -83,11 +74,5 @@ $header_class = $show_title && ! has_custom_logo() ? 'brand-logo' : 'screen-read
 					'walker'          => new Simple_Walker_Nav_Menu,
 				)
 			); ?>
-		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-				var elems = document.querySelectorAll('.sidenav');
-				var instances = M.Sidenav.init(elems);
-			});
-		</script>
 		<?php endif; ?>
 	</header><!-- #masthead -->
