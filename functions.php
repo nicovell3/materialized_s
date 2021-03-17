@@ -21,13 +21,6 @@ if ( ! function_exists( 'materialized_s_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function materialized_s_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on materialized_s, use a find and replace
-		 * to change 'materialized_s' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'materialized_s', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -50,7 +43,8 @@ if ( ! function_exists( 'materialized_s_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'materialized_s' ),
+				'primary' => esc_html__( 'Primary', 'materialized_s' ),
+				'footer' => esc_html__( 'Secondary', 'materialized_s' ),
 			)
 		);
 
@@ -140,10 +134,12 @@ add_action( 'widgets_init', 'materialized_s_widgets_init' );
  * Enqueue scripts and styles.
  */
 function materialized_s_scripts() {
+	wp_enqueue_style( 'materialized_s-fonts', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null, false);
+	wp_enqueue_style( 'materialized_s-cdn', 'https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.0.0/dist/css/materialize.min.css', array(), null, false );
 	wp_enqueue_style( 'materialized_s-style', get_stylesheet_uri(), array(), MATERIALIZED_S_VERSION );
-	wp_style_add_data( 'materialized_s-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'materialized_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), MATERIALIZED_S_VERSION, true );
+	wp_enqueue_script( 'materialized_s-cdn', 'https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.0.0/dist/js/materialize.min.js', array(), null, false );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -176,11 +172,4 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
-}
-
-/**
- * Load WooCommerce compatibility file.
- */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
 }

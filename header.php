@@ -9,6 +9,13 @@
  * @package materialized_s
  */
 
+require_once 'inc/nav-menu-walker.php';
+
+$blog_info    = get_bloginfo( 'name' );
+$description  = get_bloginfo( 'description', 'display' );
+$show_title   = ( true == display_header_text() );
+$header_class = $show_title && ! has_custom_logo() ? 'brand-logo' : 'screen-reader-text';
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -22,38 +29,65 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'materialized_s' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$materialized_s_description = get_bloginfo( 'description', 'display' );
-			if ( $materialized_s_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $materialized_s_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+		<div class="navbar-fixed">
+			<nav>
+				<div class="nav-wrapper white">
+				    <?php if ( has_custom_logo() ) : 
+						the_custom_logo();
+						elseif ( $show_title ) : ?>
+					<a class="<?php echo esc_attr( $header_class ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+							<?php echo esc_html( $blog_info ); ?>
+					</a>
+					<?php endif; ?>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'materialized_s' ); ?></button>
-			<?php
+					<!--<?php if ( true === get_theme_mod( 'display_title_and_tagline', true ) ) : ?>
+						<?php if ( $blog_info ) : ?>
+							<?php if ( is_front_page() && ! is_paged() ) : ?>
+								<a class="<?php echo esc_attr( $header_class ); ?>"><?php echo esc_html( $blog_info ); ?></a>
+
+							<?php endif; ?>
+						<?php endif; ?>
+					<?php endif; ?>-->
+
+					<?php if (has_nav_menu( 'primary' )) : ?>
+						<a href="#!" data-target="primary-menu" class="sidenav-trigger">
+							<i class="material-icons">menu</i>
+						</a>
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location'  => 'primary',
+									'menu_class'      => 'right hide-on-med-and-down',
+									'container'       => false,
+									'items_wrap'      => '<ul id="primary-nav" class="%2$s">%3$s</ul>',
+									'fallback_cb'     => false,
+									'walker'          => new Simple_Walker_Nav_Menu,
+								)
+							);
+							?>
+					<?php endif; ?>
+				</div>
+			</nav>
+		</div>
+		<?php if (has_nav_menu( 'primary' )) : 
 			wp_nav_menu(
 				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
+					'theme_location'  => 'primary',
+					'menu_class'      => 'sidenav',
+					'container'       => false,
+					'items_wrap'      => '<ul id="primary-menu" class="%2$s">%3$s</ul>',
+					'fallback_cb'     => false,
+					'walker'          => new Simple_Walker_Nav_Menu,
 				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+			); ?>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				var elems = document.querySelectorAll('.sidenav');
+				var instances = M.Sidenav.init(elems);
+			});
+		</script>
+		<?php endif; ?>
 	</header><!-- #masthead -->

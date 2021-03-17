@@ -10,23 +10,36 @@
  */
 
 ?>
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'materialized_s' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'materialized_s' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'materialized_s' ), '_s', '<a href="https://automattic.com/">Automattic</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+	<footer id="colophon" class="page-footer blue">
+		<?php if ( has_nav_menu( 'footer' ) ) : ?>
+		<div class="container">
+			<div class="row">
+				<div class="col s12 center">
+					<ul>
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'footer',
+								'items_wrap'     => '%3$s',
+								'container'      => false,
+								'depth'          => 1,
+								'link_before'    => '<span>',
+								'link_after'     => '</span>',
+								'fallback_cb'    => false,
+							)
+						);
+						?>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<?php endif; ?>
+		<div class="footer-copyright">
+			<div class="container center">
+				© <?php echo date("Y"); ?> Copyright <?php bloginfo( 'name' ); ?>
+			</div>
+		</div>
+    </footer><!-- #colophon -->
 
 <?php wp_footer(); ?>
 

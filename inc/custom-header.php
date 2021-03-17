@@ -12,6 +12,18 @@
  */
 
 /**
+ * Set up the WordPress custom logo classes.
+ */
+function materialized_s_change_logo_class( $html ) {
+
+    $html = str_replace( 'custom-logo-link', 'brand-logo', $html );
+    $html = str_replace( 'custom-logo', 'nav-logo-img', $html );
+
+    return $html;
+}
+add_filter( 'get_custom_logo', 'materialized_s_change_logo_class' );
+
+/**
  * Set up the WordPress core custom header feature.
  *
  * @uses materialized_s_header_style()

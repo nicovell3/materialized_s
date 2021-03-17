@@ -79,6 +79,9 @@ html {
  */
 body {
 	margin: 0;
+	display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 /**
@@ -86,6 +89,7 @@ body {
  */
 main {
 	display: block;
+	flex: 1 0 auto;
 }
 
 /**
@@ -396,7 +400,7 @@ html {
 
 /* Typography
 --------------------------------------------- */
-body,
+/*body,
 button,
 input,
 select,
@@ -407,6 +411,7 @@ textarea {
 	font-size: 1rem;
 	line-height: 1.5;
 }
+*/
 
 h1,
 h2,
@@ -647,71 +652,19 @@ textarea {
 
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
-	display: block;
-	width: 100%;
+
+.nav-wrapper {
+	padding: 0 .75rem;
 }
 
-.main-navigation ul {
-	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
+.brand-logo, .nav-logo-img {
+	height: inherit;
+	width: auto;
 }
 
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	display: block;
-	left: auto;
-}
-
-.main-navigation ul ul a {
-	width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-
-.main-navigation li {
-	position: relative;
-}
-
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
+nav ul a,
+nav .brand-logo {
+  color: #444;
 }
 
 .site-main .comment-navigation,
@@ -741,14 +694,21 @@ textarea {
 	flex: 1 0 50%;
 }
 
+footer li {
+	display: inline-block;
+}
+
+.page-footer {
+	margin-top: 1.5em;
+}
+
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
 	display: block;
 }
 
-.post,
-.page {
+.post {
 	margin: 0 0 1.5em;
 }
 
@@ -796,11 +756,6 @@ textarea {
 	margin-bottom: 0;
 	margin-top: 0;
 	padding: 0;
-}
-
-/* Make sure logo link wraps around logo image. */
-.custom-logo-link {
-	display: inline-block;
 }
 
 /* Captions
