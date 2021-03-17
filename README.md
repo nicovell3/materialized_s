@@ -1,4 +1,4 @@
-=== materialized_s ===
+# materialized_s
 
 Contributors: nicovell3, automattic
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
@@ -12,7 +12,7 @@ License URI: LICENSE
 
 A starter theme called materialized_s, or underscores.
 
-== Description ==
+## Description
 
 This theme aims to provide the starting point if you want to create a WP page with materializecss.
 
@@ -21,23 +21,23 @@ https://materializecss.com/templates/parallax-template/preview.html
 
 Tip: You can get free images from pixabay.com to replicate it :)
 
-== Installation ==
+## Installation
 
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
 2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions
 
-= Does this theme support any plugins? =
+### Does this theme support any plugins?
 
 materialized_s includes support for Infinite Scroll in Jetpack.
 
-== Changelog ==
+## Changelog
 
 = 1.0 - Mar 16 2021 =
 * Initial release
 
-== Credits ==
+## Credits
 
 * Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
