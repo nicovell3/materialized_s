@@ -136,9 +136,12 @@ add_action( 'widgets_init', 'materialized_s_widgets_init' );
 function materialized_s_scripts() {
 	wp_enqueue_style( 'materialized_s-fonts', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null, false);
 	wp_enqueue_style( 'materialized_s-cdn', 'https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.0.0/dist/css/materialize.min.css', array(), null, false );
-	wp_enqueue_style( 'materialized_s-style', get_stylesheet_uri(), array(), MATERIALIZED_S_VERSION );
+	wp_enqueue_style( 'materialized_s-style', get_template_directory_uri().'/style.css', array(), MATERIALIZED_S_VERSION );
+	if ( strcmp(get_stylesheet_directory_uri(), get_template_directory_uri()) != 0 ) :
+		// This will point to style.css in child theme
+		wp_enqueue_style( 'materialized_custom-style', get_stylesheet_directory_uri().'/style.css', array(), MATERIALIZED_S_VERSION );
+	endif;
 
-	wp_enqueue_script( 'materialized_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), MATERIALIZED_S_VERSION, true );
 	wp_enqueue_script( 'materialized_s-cdn', 'https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.0.0/dist/js/materialize.min.js', array(), null, false );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

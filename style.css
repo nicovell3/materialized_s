@@ -71,18 +71,11 @@ p {
 
 .nav-wrapper {
 	padding: 0 .75rem;
-	background-color: #fff !important;
 }
 
 .brand-logo, .nav-logo-img {
 	height: inherit;
 	width: auto;
-}
-
-nav ul a,
-nav .brand-logo,
-.sidenav-trigger {
-  color: #444;
 }
 
 /* Posts and pages

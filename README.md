@@ -21,6 +21,17 @@ https://materializecss.com/templates/parallax-template/preview.html
 
 Tip: You can get free images from pixabay.com to replicate it :)
 
+## Usage
+
+Although you can use it in any way you want, the ideal is to place a child theme so your custom modifications
+won't stop you from updating materialize_s. A child theme is already prepared to start developing:
+
+```
+cd wp-content/themes/
+git clone https://github.com/nicovell3/materialized_s
+cp -r materialized_s/childtheme materialized_custom
+```
+
 ## Installation
 
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
@@ -35,7 +46,7 @@ materialized_s includes support for Infinite Scroll in Jetpack.
 
 ## Changelog
 
-= 1.0 - Mar 16 2021 =
+### 1.0 - Mar 16 2021
 * Initial release
 
 ## Credits
