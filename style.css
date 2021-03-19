@@ -62,7 +62,7 @@ main {
 
 /* Typography - personal taste */
 
-p {
+article.page p, article.post p {
 	margin-bottom: 1.5em;
 	line-height: 2rem;
 }
@@ -80,6 +80,25 @@ p {
 
 /* Posts and pages
 --------------------------------------------- */
+
+.page-header {
+    line-height: 300px;
+    height: 300px;
+    text-align: center;
+}
+
+.page-header h1 {
+    margin: 0px;
+    display: inline-block;
+    vertical-align: middle;
+	color: white;
+}
+
+.page-header-img {
+	filter: brightness(50%);
+	width: 100%;
+}
+
 .updated:not(.published) {
 	display: none;
 }
@@ -100,23 +119,9 @@ p {
 
 /* Widgets
 --------------------------------------------- */
-.widget {
-	margin: 0 0 1.5em;
-}
 
-.widget select {
-	max-width: 100%;
-}
-
-/* Media
---------------------------------------------- */
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
+.widget-area {
+	margin-top: 1.5em;
 }
 
 /* Captions

@@ -121,9 +121,9 @@ function materialized_s_widgets_init() {
 			'name'          => esc_html__( 'Sidebar', 'materialized_s' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'materialized_s' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_widget' => '<section id="%1$s" class="col s12 m6 widget %2$s"><div class="card"><div class="card-content">',
+			'after_widget'  => '</div></div></section>',
+			'before_title'  => '<h2 class="card-title widget-title">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -134,7 +134,7 @@ add_action( 'widgets_init', 'materialized_s_widgets_init' );
  * Enqueue scripts and styles.
  */
 function materialized_s_scripts() {
-	wp_enqueue_style( 'materialized_s-fonts', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null, false);
+	wp_enqueue_style( 'materialized_s-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null, false);
 	wp_enqueue_style( 'materialized_s-cdn', 'https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.0.0/dist/css/materialize.min.css', array(), null, false );
 	wp_enqueue_style( 'materialized_s-style', get_template_directory_uri().'/style.css', array(), MATERIALIZED_S_VERSION );
 	if ( strcmp(get_stylesheet_directory_uri(), get_template_directory_uri()) != 0 ) :

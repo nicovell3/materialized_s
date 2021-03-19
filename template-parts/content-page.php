@@ -13,8 +13,10 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<!-- the_title
-	<?php the_title( '<h2>', '</h2>' ); ?> -->
+	<div class="parallax-container page-header">
+		<?php the_title( '<h1>', '</h1>' ); ?>
+		<div class="parallax"><img class="page-header-img" src="<?php echo get_template_directory_uri(); ?>/header.png"></div>
+	</div>
 
 	<!-- post_thumbnail
 	<?php materialized_s_post_thumbnail(); ?> -->
