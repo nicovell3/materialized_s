@@ -107,6 +107,11 @@ article.page p, article.post p {
 	top: 100px;
 }
 
+.entry-footer > *,
+.comment-metadata > * {
+	margin-right: 1em;
+}
+
 /* Comments
 --------------------------------------------- */
 .comment-content a {

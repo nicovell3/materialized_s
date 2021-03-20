@@ -151,6 +151,11 @@ function materialized_s_scripts() {
 add_action( 'wp_enqueue_scripts', 'materialized_s_scripts' );
 
 /**
+ * Remove url field from comments
+ */
+add_filter('comment_form_field_url', '__return_false');
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

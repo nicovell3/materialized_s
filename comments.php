@@ -20,13 +20,12 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area container">
 
 	<?php
-	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
+		<h4 class="comments-title">
 			<?php
 			$materialized_s_comment_count = get_comments_number();
 			if ( '1' === $materialized_s_comment_count ) {
@@ -44,7 +43,7 @@ if ( post_password_required() ) {
 				);
 			}
 			?>
-		</h2><!-- .comments-title -->
+		</h4><!-- .comments-title -->
 
 		<?php the_comments_navigation(); ?>
 
@@ -62,16 +61,61 @@ if ( post_password_required() ) {
 		<?php
 		the_comments_navigation();
 
-		// If comments are closed and there are comments, let's leave a little note, shall we?
+		/*
 		if ( ! comments_open() ) :
 			?>
 			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'materialized_s' ); ?></p>
 			<?php
 		endif;
+		*/
 
 	endif; // Check for have_comments().
 
-	comment_form();
+	//Declare Vars for translation
+	$comment_send = 'Send';
+	$comment_reply = 'Post a comment';
+	$comment_reply_to = 'Reply';
+	$comment_author = 'Name';
+	$comment_email = 'E-Mail';
+	$comment_label = 'Comment';
+	$comment_cookies_1 = ' By commenting you accept the';
+	$comment_cookies_2 = ' Privacy Policy';
+	$comment_before = '';
+	$comment_cancel = 'Cancel Reply';
+	
+	//Array
+	$comments_args = array(
+		'class_container' => 'comment-form row',
+		'title_reply_before' => __( '<h5 id="reply-title" class="comment-reply-title">' ),
+		'title_reply' => __( $comment_reply ),
+		'title_reply_after' => __( '</h5>' ),
+		'fields' => array(
+			'author' => '<div class="input-field col s12 m6">
+				<i class="material-icons prefix">account_box</i>
+				<input id="author" name="author" aria-required="true" placeholder="' . $comment_author .'">
+				</input>
+				</div>',
+			'email' => '<div class="input-field col s12 m6">
+				<i class="material-icons prefix">mail</i>
+				<input id="email" name="email" aria-required="true" placeholder="' . $comment_email .'">
+				</input>
+				</div>',
+			'cookies' => '<label>' . $comment_cookies_1 . '<a href="' . get_privacy_policy_url() . '">' . $comment_cookies_2 . '</a>.</label>',
+		),
+		'comment_notes_before' => __( $comment_before),
+		'comment_field' => '<div class="input-field col s12">
+		<textarea id="comment" class="materialize-textarea" name="comment" aria-required="true"></textarea>
+		<label for="comment">' . $comment_label .'</label></div>',
+		'comment_notes_after' => '',
+		'id_submit' => __( 'comment-submit' ),
+		'label_submit' => __( $comment_send ),
+		'class_submit' => __( 'waves-effect waves-light btn' ),
+		'submit_button' => __( '<button name="%1$s" id="%2$s" class="%3$s">%4$s<i class="material-icons right">send</i></button>' ),
+		'submit_fied' => __( '<div class="form-submit input-field col s12">%1$s %2$s</div>' ),
+		'title_reply_to' => __( $comment_reply_to ),
+		'cancel_reply_link' => __( $comment_cancel ),
+	);
+	comment_form( $comments_args );
 	?>
 
 </div><!-- #comments -->
