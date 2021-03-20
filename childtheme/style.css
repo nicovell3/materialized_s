@@ -14,3 +14,24 @@ Text Domain: materialized_custom
 Tags: customizable-theme
 */
 
+/* To change the main color, modify these settings */
+#primary-menu .background,
+.nav-wrapper,
+.page-footer,
+.btn {
+	background-color: #5f98cc !important;
+}
+
+input:focus,
+textarea:focus {
+    border-bottom: 1px solid #5f98cc !important;
+    box-shadow: 0 1px 0 0 #5f98cc !important;
+}
+
+label.active {
+    color: #5f98cc !important;
+}
+
+blockquote {
+    border-left: 5px solid #5f98cc;
+}

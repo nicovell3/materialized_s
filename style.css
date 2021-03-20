@@ -78,6 +78,24 @@ article.page p, article.post p {
 	width: auto;
 }
 
+#primary-menu .user-view {
+	padding: 16px;
+}
+
+#primary-menu .background {
+	background-color: #ee6e72;
+}
+
+#primary-menu h3 {
+	color: white;
+}
+
+#sidebar-header-background {
+	display: none;
+	filter: brightness(50%);
+	width: 100%;
+}
+
 /* Posts and pages
 --------------------------------------------- */
 

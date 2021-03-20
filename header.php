@@ -69,7 +69,14 @@ $header_class = $show_title && ! has_custom_logo() ? 'brand-logo' : 'screen-read
 					'theme_location'  => 'primary',
 					'menu_class'      => 'sidenav',
 					'container'       => false,
-					'items_wrap'      => '<ul id="primary-menu" class="%2$s">%3$s</ul>',
+					'items_wrap'      => '<ul id="primary-menu" class="%2$s">
+					<li><div class="user-view">
+					<div class="background">
+						<img id="sidebar-header-background" src="' . get_template_directory_uri() . '/header.png">
+					</div>
+					<h3>' . esc_html( $blog_info ) . '</h3>
+					</div></li>
+					%3$s</ul>',
 					'fallback_cb'     => false,
 					'walker'          => new Simple_Walker_Nav_Menu,
 				)
